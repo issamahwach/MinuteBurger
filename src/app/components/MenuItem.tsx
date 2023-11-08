@@ -1,6 +1,7 @@
+import { MenuItemProps } from "@/types";
 import React from "react";
 
-function MenuItem() {
+function MenuItem({ name, image, price }: MenuItemProps) {
   return (
     <div className="group">
       <div className="flex flex-col items-center">

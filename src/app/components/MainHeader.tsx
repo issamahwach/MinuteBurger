@@ -16,7 +16,7 @@ function MainHeader() {
             <Navigation />
           </div>
           <div className="flex flex-row items-center gap-6">
-            <Link href="/">
+            <Link href="/cart">
               <svg
                 className="w-8 h-8 transition-colors text-white hover:text-yellow-400"
                 aria-hidden="true"

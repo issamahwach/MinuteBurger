@@ -1,0 +1,32 @@
+[
+  {
+    "name": "cheese hamburger",
+    "image": "/beef-burger.webp",
+    "price": 29.99
+  },
+  {
+    "name": "chicken burger",
+    "image": "/beef-burger.webp",
+    "price": 29.99
+  },
+  {
+    "name": "roots burger",
+    "image": "/beef-burger.webp",
+    "price": 29.99
+  },
+  {
+    "name": "volkano burger",
+    "image": "/beef-burger.webp",
+    "price": 29.99
+  },
+  {
+    "name": "doubleB burger",
+    "image": "/beef-burger.webp",
+    "price": 29.99
+  },
+  {
+    "name": "doodle burger",
+    "image": "/beef-burger.webp",
+    "price": 29.99
+  }
+]

@@ -1,12 +1,20 @@
+"use client";
 import React from "react";
 import MenuItem from "../components/MenuItem";
-
+import foodMenu from "../../constant/foodMenu.json";
+import ProductFilter from "../components/ProductFilter";
 function page() {
+  const [openFilters, setOpenFilters] = React.useState<boolean>(true);
+
   return (
     <div className="px-4 pt-36 lg:px-24 min-h-screen">
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row ">
         <div className="w-full lg:w-1/4 bg-gray-500/5 rounded-lg backdrop-filter backdrop-blur-lg text-white">
-          <div className="flex flex-row justify-between items-center py-4 px-4 lg:px-6 border-b border-gray-500">
+          <button
+            type="button"
+            onClick={() => setOpenFilters(!openFilters)}
+            className="w-full flex flex-row justify-between items-center py-4 px-4 lg:px-6 border-b border-gray-500"
+          >
             <span>Filters</span>
             <svg
               className="w-8 h-8 text-white"
@@ -23,19 +31,23 @@ function page() {
                 strokeLinejoin="round"
               />
             </svg>
-          </div>
+          </button>
+          {openFilters && (
+            <div className="py-4">
+              <ProductFilter />
+            </div>
+          )}
         </div>
         <div className="w-full lg:w-3/4">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10 w-full">
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
-            <MenuItem />
+            {foodMenu.map((item, index) => (
+              <MenuItem
+                key={index}
+                name={item.name}
+                image={item.image}
+                price={item.price}
+              />
+            ))}
           </div>
         </div>
       </div>

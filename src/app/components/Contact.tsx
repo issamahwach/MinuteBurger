@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 function Contact() {
   return (
     <motion.div
+      id="contact"
       initial={{ y: 250, opacity: 0 }}
       whileInView={{ y: 0, opacity: 100 }}
       transition={{ duration: 1 }}

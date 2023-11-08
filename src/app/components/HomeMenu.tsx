@@ -2,6 +2,7 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 import { motion } from "framer-motion";
+import foodMenu from "../../constant/foodMenu.json";
 function HomeMenu() {
   return (
     <motion.div
@@ -15,12 +16,14 @@ function HomeMenu() {
           Our Menu
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
+          {foodMenu.map((item, index) => (
+            <MenuItem
+              key={index}
+              name={item.name}
+              image={item.image}
+              price={item.price}
+            />
+          ))}
         </div>
       </div>
     </motion.div>
