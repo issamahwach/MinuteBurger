@@ -1,0 +1,24 @@
+{
+  "mainMenu": [
+    {
+      "title": "Home",
+      "link": "/"
+    },
+    {
+      "title": "Menu",
+      "link": "/menu"
+    },
+    {
+      "title": "About",
+      "link": "/about"
+    },
+    {
+      "title": "Reviews",
+      "link": "/reviews"
+    },
+    {
+      "title": "Contact",
+      "link": "/contact"
+    }
+  ]
+}

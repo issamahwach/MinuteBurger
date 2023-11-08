@@ -17,7 +17,7 @@ function HeroSection() {
         </p>
         <button
           type="button"
-          className="text-black font-bold bg-yellow-400 rounded-full px-8 py-2 mt-8 max-w-max self-center lg:self-start"
+          className="text-black font-bold bg-yellow-400 rounded-full px-8 py-2 mt-8 max-w-max self-center lg:self-start transition-transform hover:scale-105 shadow-lg shadow-yellow-800"
         >
           Order Now
         </button>

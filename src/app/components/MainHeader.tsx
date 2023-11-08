@@ -1,39 +1,24 @@
 import Link from "next/link";
 import React from "react";
+import Navigation from "./Navigation";
 
 function MainHeader() {
   return (
     <div className="fixed top-0 left-0 w-full z-10">
-      <div className="bg-gray-800/25 backdrop-filter backdrop-blur-sm px-4 py-4 rounded-lg text-gray-100 mx-4 lg:mx-24  mt-4">
+      <div className="bg-gray-800/25 backdrop-filter backdrop-blur-sm px-4 py-4 rounded-lg text-white mx-4 lg:mx-24  mt-4">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row items-center gap-10">
             <div className="text-white">
-              <img src="/logo-small.png" className="w-16" />
+              <Link href="/">
+                <img src="/logo-small.png" className="w-16" />
+              </Link>
             </div>
-            <nav className="hidden lg:flex">
-              <ul className="flex flex-row gap-4">
-                <li>
-                  <span>Home</span>
-                </li>
-                <li>
-                  <span>Menu</span>
-                </li>
-                <li>
-                  <span>About</span>
-                </li>
-                <li>
-                  <span>Reviews</span>
-                </li>
-                <li>
-                  <span>Contact</span>
-                </li>
-              </ul>
-            </nav>
+            <Navigation />
           </div>
           <div className="flex flex-row items-center gap-6">
             <Link href="/">
               <svg
-                className="text-white w-8 h-8"
+                className="w-8 h-8 transition-colors text-white hover:text-yellow-400"
                 aria-hidden="true"
                 fill="none"
                 stroke="currentColor"
@@ -50,7 +35,7 @@ function MainHeader() {
             </Link>
             <Link href="/">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-8 h-8 transition-colors text-white hover:text-yellow-400"
                 aria-hidden="true"
                 fill="none"
                 stroke="currentColor"
@@ -65,6 +50,23 @@ function MainHeader() {
                 />
               </svg>
             </Link>
+            <button type="button" className="lg:hidden">
+              <svg
+                className="w-8 h-8 transition-colors text-white hover:text-yellow-400"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
