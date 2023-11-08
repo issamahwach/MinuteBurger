@@ -11,8 +11,9 @@ function Specialities() {
           whileInView={{ x: 0, opacity: 100 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
+          className="flex flex-row justify-center lg:justify-start"
         >
-          <img src="about-img.png" className="w-3/4" />
+          <img src="about-img.png" className="w-1/2 lg:w-3/4" />
         </motion.div>
       </div>
       <div className="w-full lg:w-1/2">
@@ -22,7 +23,7 @@ function Specialities() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl text-white uppercase">
+          <h3 className="text-2xl text-white uppercase mt-4 lg:mt-0">
             Step into burger heaven
           </h3>
           <p className="text-gray-400 leading-loose mt-4">

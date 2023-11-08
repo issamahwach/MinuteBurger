@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 function HeroSection() {
   return (
     <div className="flex flex-col-reverse lg:flex-row items-center">
-      <div className="w-full lg:w-1/2 flex flex-col">
+      <div className="w-full lg:w-1/2">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 100 }}
           transition={{ ease: "easeOut", duration: 0.4 }}
+          className="flex flex-col"
         >
           <span className="text-yellow-400 text-5xl font-bold capitalize font-Caveat text-center lg:text-start">
             Try Our New
