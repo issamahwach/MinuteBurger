@@ -3,8 +3,22 @@ import React from "react";
 import MenuItem from "../components/MenuItem";
 import foodMenu from "../../constant/foodMenu.json";
 import ProductFilter from "../components/ProductFilter";
+import { useGlobalContext } from "@/context/store";
 function page() {
+  const { cart, updateCart } = useGlobalContext();
   const [openFilters, setOpenFilters] = React.useState<boolean>(true);
+
+  const onAddToCart = (newItem: any) => {
+    let updatedCart = [...cart];
+    const index = updatedCart.findIndex((obj) => obj.id === newItem.id);
+    if (index !== -1) {
+      updatedCart[index].quantity += 1;
+    } else {
+      updatedCart.push({ ...newItem, quantity: 1 });
+    }
+
+    updateCart(updatedCart);
+  };
 
   return (
     <div className="px-4 pt-36 lg:px-24 min-h-screen">
@@ -42,10 +56,12 @@ function page() {
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10 w-full">
             {foodMenu.map((item, index) => (
               <MenuItem
+                id={item.id}
                 key={index}
                 name={item.name}
                 image={item.image}
                 price={item.price}
+                addToCart={onAddToCart}
               />
             ))}
           </div>
