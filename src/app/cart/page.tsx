@@ -1,66 +1,44 @@
 "use client";
 import React from "react";
 import CartItem from "../components/CartItem";
-
-const cartItems = [
-  {
-    id: 1,
-    title: "Beef Burger",
-    image: "/beef-burger.webp",
-    price: 20,
-    quantity: 1,
-  },
-  {
-    id: 2,
-    title: "Chicken Burger",
-    image: "/beef-burger.webp",
-    price: 17,
-    quantity: 1,
-  },
-  {
-    id: 3,
-    title: "Volkano Burger",
-    image: "/beef-burger.webp",
-    price: 22.5,
-    quantity: 1,
-  },
-  {
-    id: 4,
-    title: "DoubleB Burger",
-    image: "/beef-burger.webp",
-    price: 25,
-    quantity: 1,
-  },
-];
+import { useGlobalContext } from "@/context/store";
 
 function page() {
-  const [selectedItems, setSelectedItems] = React.useState(cartItems);
+  const { cart, updateCart } = useGlobalContext();
   const [subtotal, setSubtotal] = React.useState(0);
+
   React.useEffect(() => {
-    let total = selectedItems.reduce(
-      (a, b) => a + (b.quantity * b.price || 0),
-      0
-    );
+    let total = cart.reduce((a, b) => a + (b.quantity * b.price || 0), 0);
     setSubtotal(total);
-  }, [selectedItems]);
+  }, [cart]);
 
   const onIncreaseQuantity = (id: number) => {
-    let clonedItems = [...selectedItems];
+    let clonedItems = [...cart];
     clonedItems.forEach((item) => {
       if (item.id === id) {
         item.quantity += 1;
       }
     });
-    setSelectedItems(clonedItems);
+    updateCart(clonedItems);
   };
   const onDecreaseQuantity = (id: number) => {
-    let clonedItems = [...selectedItems];
-    clonedItems.forEach((item) => {
-      if (item.id === id && item.quantity >= 1) {
-        item.quantity -= 1;
+    let clonedItems = [...cart];
+    const index = clonedItems.findIndex((obj) => obj.id === id);
+    if (index !== -1) {
+      if (clonedItems[index].quantity >= 1) {
+        clonedItems[index].quantity -= 1;
+        updateCart(clonedItems);
+      } else {
+        clonedItems.splice(index, 1);
+        updateCart(clonedItems);
       }
-    });
-    setSelectedItems(clonedItems);
+    }
+    // clonedItems.forEach((item) => {
+    //   if (item.id === id && item.quantity >= 1) {
+    //     item.quantity -= 1;
+    //   }
+    // });
+    // updateCart(clonedItems);
   };
   return (
     <div className="px-4 pt-36 lg:px-24 min-h-screen">
@@ -105,10 +83,10 @@ function page() {
             <h2 className="text-white text-xl">Order Summary</h2>
           </div>
           <div className="px-4 py-4 flex flex-col gap-4 border-b border-gray-600">
-            {selectedItems.map((item, index) => (
+            {cart.map((item, index) => (
               <CartItem
                 key={index}
-                title={item.title}
+                name={item.name}
                 image={item.image}
                 id={item.id}
                 price={item.price}

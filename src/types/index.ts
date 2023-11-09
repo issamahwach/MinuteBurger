@@ -1,15 +1,14 @@
 export interface MenuItemProps {
+  id: number;
   name: string;
   price: number;
   image: string;
 }
 
-export interface CartItem {
+export interface CartItemProps {
   id: number;
-  title: string;
+  name: string;
   image: string;
   price: number;
   quantity: number;
-  increaseQuantity: (id: number) => void;
-  decreaseQuantity: (id: number) => void;
 }

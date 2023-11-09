@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
-
+import { GlobalContextProvider } from "@/context/store";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,9 +21,11 @@ export default function RootLayout({
       <body
         className={`bg-[url('/background.jpg')] bg-repeat bg-contain ${inter.className}`}
       >
-        <MainHeader />
-        <main>{children}</main>
-        <MainFooter />
+        <GlobalContextProvider>
+          <MainHeader />
+          <main>{children}</main>
+          <MainFooter />
+        </GlobalContextProvider>
       </body>
     </html>
   );
