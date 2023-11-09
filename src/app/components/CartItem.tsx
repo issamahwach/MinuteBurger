@@ -28,7 +28,7 @@ function CartItem({
         <button
           type="button"
           onClick={() => decreaseQuantity(id)}
-          className="px-4 py-2 bg-yellow-500 text-xl text-black font-bold rounded-md"
+          className="p-1 bg-yellow-500 text-xl text-black font-bold rounded-md"
         >
           {quantity === 0 ? (
             <svg
@@ -60,11 +60,11 @@ function CartItem({
             </svg>
           )}
         </button>
-        <span className="font-bold text-xl">{quantity}</span>
+        <span className="lg:font-bold lg:text-xl">{quantity}</span>
         <button
           type="button"
           onClick={() => increaseQuantity(id)}
-          className="px-4 py-2 bg-yellow-500 text-xl text-black font-bold rounded-md"
+          className="p-1 bg-yellow-500 text-xl text-black font-bold rounded-md"
         >
           <svg
             className="w-5 h-5"
