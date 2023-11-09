@@ -58,12 +58,12 @@ function MobileMenu() {
         {open && (
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: "30vh" }}
+            animate={{ height: "35vh" }}
             exit={{
               height: 0,
               transition: { delay: 0.3, duration: 0.3 },
             }}
-            className="fixed top-28 left-0 z-50 w-full bg-gray-800/25 backdrop-filter backdrop-blur-sm"
+            className="fixed top-28 left-0 z-50 w-full bg-gray-800/75 backdrop-filter backdrop-blur-sm"
           >
             <motion.div
               className="w-full"
