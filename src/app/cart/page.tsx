@@ -33,12 +33,6 @@ function page() {
         updateCart(clonedItems);
       }
     }
-    // clonedItems.forEach((item) => {
-    //   if (item.id === id && item.quantity >= 1) {
-    //     item.quantity -= 1;
-    //   }
-    // });
-    // updateCart(clonedItems);
   };
   return (
     <div className="px-4 pt-36 lg:px-24 min-h-screen">
