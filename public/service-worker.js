@@ -1,5 +1,4 @@
-"use client";
-function ServiceWorker() {
+function registerServiceWorker() {
   if (typeof window !== "undefined") {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/sw.js").then((registration) => {
@@ -7,8 +6,6 @@ function ServiceWorker() {
       });
     }
   }
-
-  return <></>;
 }
 
-export default ServiceWorker;
+registerServiceWorker();
