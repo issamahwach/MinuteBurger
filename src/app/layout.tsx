@@ -4,6 +4,7 @@ import "./globals.css";
 import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
 import { GlobalContextProvider } from "@/context/store";
+import ServiceWorker from "./components/ServiceWorker";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
         className={`bg-[url('/background.jpg')] bg-repeat bg-contain ${inter.className}`}
       >
         <GlobalContextProvider>
+          <ServiceWorker />
           <MainHeader />
           <main>{children}</main>
           <MainFooter />
